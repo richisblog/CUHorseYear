@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities | 2026 Horse Year Festival</title>
+  <style>
+    :root {
+      --primary-color: #d32f2f;
+      /* Festive Red */
+      --accent-color: #ffca28;
+      /* Gold */
+      --text-color: #333;
+      --bg-color: #f9f9f9;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Active link style */
+    .nav-links a.active {
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    .page-header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      background-image: url('photos/homebackground.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 25px;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html" class="active">Activities</a></li>
+        <li><a href="foods.html">Foods</a></li>
+        <li><a href="goods.html">Goods</a></li>
+        <li><a href="showtime.html">Showtime</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <h1>Activities | 精彩活动</h1>
+  </section>
+
+  <div class="container">
+    <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 40px; font-size: 2.5rem;">Festival
+      Activities | 节日活动</h2>
+    <div class="grid">
+      <!-- Activity 1 -->
+      <div class="card">
+        <img src="photos/麻将.png" alt="Mahjong">
+        <div class="card-content">
+          <h3>Mahjong | 麻将</h3>
+          <p>A game where strategy and luck intertwine</p>
+        </div>
+      </div>
+
+      <!-- Activity 2 -->
+      <div class="card">
+        <img src="photos/pingpang.png" alt="Ping Pong">
+        <div class="card-content">
+          <h3>Ping Pong | 乒乓球</h3>
+          <p>Enjoy a friendly match</p>
+        </div>
+      </div>
+
+      <!-- Activity 3 -->
+      <div class="card">
+        <img src="photos/go.png" alt="Go Game">
+        <div class="card-content">
+          <h3>Go | 围棋</h3>
+          <p>A philosophical journey of black and white</p>
+        </div>
+      </div>
+
+      <!-- Activity 4 -->
+      <div class="card">
+        <img src="photos/投壶.png" alt="Ring Toss">
+        <div class="card-content">
+          <h3>Ring Toss | 投壶</h3>
+          <p>Win small prizes</p>
+        </div>
+      </div>
+
+      <!-- Activity 5 -->
+      <div class="card">
+        <img src="photos/书法.png" alt="Calligraphy">
+        <div class="card-content">
+          <h3>Calligraphy | 书法</h3>
+          <p>Try Chinese calligraphy</p>
+        </div>
+      </div>
+
+      <!-- Activity 6 -->
+      <div class="card">
+        <img src="photos/鲁班锁.png" alt="Luban Lock">
+        <div class="card-content">
+          <h3>Luban Lock | 鲁班锁</h3>
+          <p>Chinese traditional brain teasers</p>
+        </div>
+      </div>
+
+      <!-- Activity 7 -->
+      <div class="card">
+        <img src="photos/七巧板.png" alt="Tangrams">
+        <div class="card-content">
+          <h3>Tangrams | 七巧板</h3>
+          <p>Explore Creativity with shapes</p>
+        </div>
+      </div>
+
+      <!-- Activity 8 -->
+      <div class="card">
+        <img src="photos/求签.png" alt="Divination Sticks">
+        <div class="card-content">
+          <h3>Divination Sticks | 求签</h3>
+          <p>Discover your Future</p>
+        </div>
+      </div>
+
+      <!-- Activity 9 -->
+      <div class="card">
+        <img src="photos/夹乒乓球.png" alt="Chopsticks Game">
+        <div class="card-content">
+          <h3>夹乒乓球 | Chopsticks Game</h3>
+          <p>Enjoy a traditional game of skill</p>
+        </div>
+      </div>
+
+      <!-- Activity 10 -->
+      <div class="card">
+        <img src="photos/皮影.png" alt="Shadow Puppets">
+        <div class="card-content">
+          <h3>Shadow Puppets | 皮影</h3>
+          <p>Chinese traditional puppets</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paid Section -->
+    <h2 style="text-align: center; color: var(--primary-color); margin: 60px 0 40px; font-size: 2.5rem;">Paid Projects |
+      收费项目</h2>
+    <div class="grid">
+      <!-- Paid 1 -->
+      <div class="card">
+        <img src="photos/正常摄影.jpg" alt="Normal photography">
+        <div class="card-content">
+          <h3>Digital Photography | 数码摄影</h3>
+          <p>$2 for 1 | $5 for 3</p>
+        </div>
+      </div>
+
+      <!-- Paid 2 -->
+      <div class="card">
+        <img src="photos/财神爷合影.png" alt="Hanfu photography">
+        <div class="card-content">
+          <h3>Photo with God of Wealth | 财神爷合影</h3>
+          <p>$3 for 1 (Digital Camera)</p>
+        </div>
+      </div>
+
+      <!-- Paid 3 -->
+      <div class="card">
+        <img src="photos/拍立得.jpg" alt="Instant photo">
+        <div class="card-content">
+          <h3>Instant photo | 拍立得</h3>
+          <p>$3 for 1 | $5 for 2</p>
+        </div>
+      </div>
+
+      <!-- Paid 4 -->
+      <div class="card">
+        <img src="photos/剪纸.png" alt="Paper cutting">
+        <div class="card-content">
+          <h3>Paper cutting | 剪纸</h3>
+          <p>$2</p>
+        </div>
+      </div>
+
+      <!-- Paid 5 -->
+      <div class="card">
+        <img src="photos/中国结.png" alt="Chinese Knot">
+        <div class="card-content">
+          <h3>Chinese Knot | 中国结</h3>
+          <p>$2</p>
+          <p style="font-size: 0.9rem;">Make your own symbolic decoration</p>
+        </div>
+      </div>
+
+      <!-- Paid 6 -->
+      <div class="card">
+        <img src="photos/脸谱彩绘.png" alt="Face painting">
+        <div class="card-content">
+          <h3>Face painting | 脸谱彩绘</h3>
+          <p>$3</p>
+          <p style="font-size: 0.9rem;">Traditional face art</p>
+        </div>
+      </div>
+
+      <!-- Paid 7 -->
+      <div class="card">
+        <img src="photos/漆扇.png" alt="Lacquer Fan">
+        <div class="card-content">
+          <h3>Lacquer Fan | 漆扇</h3>
+          <p>$5</p>
+        </div>
+      </div>
+
+      <!-- Paid 8 -->
+      <div class="card">
+        <img src="photos/串珠.png" alt="Bead Stringing">
+        <div class="card-content">
+          <h3>Bead Stringing | 串珠</h3>
+          <p>$2</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>

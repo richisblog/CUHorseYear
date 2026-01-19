@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CU Enchanged Horse Year Festival | 2026 马年庙会</title>
+  <style>
+    :root {
+      --primary-color: #d32f2f;
+      /* Festive Red */
+      --accent-color: #ffca28;
+      /* Gold */
+      --text-color: #333;
+      --bg-color: #f9f9f9;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('photos/homebackground.png');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 5px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-weight: 400;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 5px 15px;
+      border-radius: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: #333;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background-color: #ffb300;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="foods.html">Foods</a></li>
+        <li><a href="goods.html">Goods</a></li>
+        <li><a href="showtime.html">Showtime</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>2026 马年马到成功</h1>
+    <h2>Spirit of the Horse Festival</h2>
+    <p>ime：feb 22 12pm-5pm ｜Venue：Farmer's Market (301 C St, Davis, CA 95616)</p>
+    <a href="activities.html" class="btn">Explore Activities</a>
+  </section>
+
+  <div class="container">
+    <h2 class="section-title">Festival Highlights</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="photos/书法.png" alt="Activities">
+        <div class="card-content">
+          <h3>Activities | 活动</h3>
+          <p>Experience traditional games, performances, and interactive workshops for all ages.</p>
+          <a href="activities.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Learn
+            More &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="photos/投壶.png" alt="Foods">
+        <div class="card-content">
+          <h3>Foods | 美食</h3>
+          <p>Savor delicious traditional snacks and street foods that bring the taste of home.</p>
+          <a href="foods.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">View Menu
+            &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+          alt="Goods">
+        <div class="card-content">
+          <h3>Goods | 商品</h3>
+          <p>Browse our market for unique souvenirs, handicrafts, and festival merchandise.</p>
+          <a href="goods.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Shop Now
+            &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+          alt="Showtime">
+        <div class="card-content">
+          <h3>Showtime | 节目单</h3>
+          <p>Don't miss our exciting line-up of live performances, music, and cultural shows.</p>
+          <a href="showtime.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">View
+            Schedule
+            &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">About the Event</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+      <strong>Time:</strong> Feb 22, 12pm - 5pm<br>
+      <strong>Venue:</strong> Farmer's Market (301 C St, Davis, CA 95616)
+    </p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>

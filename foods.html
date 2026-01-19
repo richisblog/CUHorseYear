@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foods | 2026 Horse Year Festival</title>
+  <style>
+    :root {
+      --primary-color: #d32f2f;
+      --accent-color: #ffca28;
+      --text-color: #333;
+      --bg-color: #f9f9f9;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    .page-header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      margin-top: 50px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-list li {
+      padding: 4px 0;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .menu-list li:last-child {
+      border-bottom: none;
+    }
+
+    .price {
+      float: right;
+      color: #777;
+      font-weight: bold;
+    }
+
+    .special-note {
+      grid-column: 1 / -1;
+      background-color: #fff9c4;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      border: 1px dashed #fbc02d;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="foods.html" class="active">Foods</a></li>
+        <li><a href="goods.html">Goods</a></li>
+        <li><a href="showtime.html">Showtime</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <h1>Foods | 美食</h1>
+  </section>
+
+  <div class="container">
+
+    <div class="section-title">Dumpling House | 饺子馆</div>
+    <div class="grid">
+      <div class="card">
+        <img src="photos/饺子.jpg" alt="Dumplings">
+        <div class="card-content">
+          <h3>Dumplings' Flavors</h3>
+          <ul class="menu-list">
+            <li>猪肉韭菜 - Pork chive</li>
+            <li>猪肉蔬菜 - Pork vegetable</li>
+            <li>泡菜猪肉 - Kimchi pork</li>
+            <li>虾仁鸡肉 - Shrimp and chicken</li>
+            <li>鸡肉玉米 - Chicken and corn</li>
+            <li>蔬菜 - Vegetable</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <img src="photos/叉烧包.jpg" alt="Other Foods">
+        <div class="card-content">
+          <h3>Other Foods</h3>
+          <ul class="menu-list">
+            <li>叉烧包 - BBQ pork bao</li>
+            <li>豆沙包 - Red bean bao</li>
+            <li>素包子 - Vegetable bao</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Shahs halal food truck | Shahs清真食品车</div>
+    <div class="grid">
+      <div class="card">
+        <img src="photos/shahs.jpg" alt="Menu">
+        <div class="card-content">
+          <h3>Menu</h3>
+          <ul class="menu-list">
+            <li>鸡肉配米饭 - Chicken over rice</li>
+            <li>羊肉配米饭 - Lamb over rice</li>
+            <li>沙拉三明治配米饭 - Falafel over rice</li>
+            <li>鸡肉gyro - Chicken gyro</li>
+            <li>羊肉gyro - Lamb gyro</li>
+            <li>沙拉三明治gyro - Falafel gyro</li>
+            <li>炸薯条 - French fries</li>
+            <li>素食samosa - Veggie samosa</li>
+            <li>鹰嘴豆泥 - Hummus</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Sunflowers and Sage Herb and Tea Farm | 茶园</div>
+    <div class="grid">
+      <div class="card">
+        <img src="photos/茶.jpg" alt="Tea Menu">
+        <div class="card-content">
+          <h3>Menu</h3>
+          <ul class="menu-list">
+            <li>袋装干草本茶 - Packaged dried herb teas</li>
+            <li>混合凉茶 - Herbal tea in fusions</li>
+            <li>袋装柴茶、黑茶、白茶、绿茶和大吉岭茶 - Chai, black, white, green & Darjeeling tea in packages</li>
+            <li>烹饪用干香草和香草混合物 - Dried herbs and herb blends for cooking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">why not boba | 奶茶</div>
+    <div class="grid">
+      <div class="card">
+        <img src="photos/奶茶.jpg" alt="Boba Drinks">
+        <div class="card-content">
+          <h3>DRINKS <span class="price">$7.5</span></h3>
+          <ul class="menu-list">
+            <li>珍珠奶茶 - Boba Milk Tea</li>
+            <li>芋头奶茶 - Taro Milk Tea</li>
+            <li>草莓绿茶 - Strawberry Green Tea</li>
+            <li>越南咖啡 - Vietnamese Coffee</li>
+          </ul>
+          <h3 style="margin-top: 15px;">TOPPINGS <span class="price">$0.75</span></h3>
+          <ul class="menu-list">
+            <li>黑糖珍珠 - Brown Sugar Boba</li>
+            <li>茘枝果冻 - Lychee Jelly</li>
+          </ul>
+          <div
+            style="margin-top: 20px; padding: 10px; background-color: #fff9c4; border: 1px dashed #fbc02d; border-radius: 5px; font-weight: bold; font-size: 0.9rem;">
+            * 在此摊位购买任意商品即可免费领取一个麻薯甜甜圈<br>
+            * With any purchase at this booth, you can get ONE FREE mochi donut.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>

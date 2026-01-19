@@ -1,0 +1,199 @@
+[
+  {
+    "category": "Snacks",
+    "items": [
+      {
+        "name": "Lay's chips",
+        "chinese_name": "薯片",
+        "price": "$3",
+        "image": "photos/薯片.jpg"
+      },
+      {
+        "name": "Instant Noodles",
+        "chinese_name": "方便面",
+        "price": "$1 for 1",
+        "image": "photos/方便面.png"
+      },
+      {
+        "name": "Hot&Sour Noodles",
+        "chinese_name": "酸辣粉",
+        "price": "$3",
+        "image": "photos/酸辣粉.jpg"
+      },
+      {
+        "name": "Spicy Konjac Snack",
+        "chinese_name": "魔芋爽",
+        "price": "$2 for 3",
+        "image": "photos/魔芋爽.jpg"
+      },
+      {
+        "name": "Spicy Strips",
+        "chinese_name": "辣条",
+        "price": "$2",
+        "image": "photos/辣条.jpg"
+      },
+      {
+        "name": "Wangwang rice Crackers",
+        "chinese_name": "旺旺雪饼",
+        "price": "$2 for 3",
+        "image": "photos/旺旺雪饼.jpg"
+      },
+      {
+        "name": "Wangwang milk",
+        "chinese_name": "旺仔牛奶",
+        "price": "$3",
+        "image": "photos/旺仔牛奶.jpg"
+      },
+      {
+        "name": "Sunflower Seeds",
+        "chinese_name": "瓜子",
+        "price": "$3.5",
+        "image": "photos/瓜子.jpg"
+      },
+      {
+        "name": "Eight-Treasure Congee",
+        "chinese_name": "八宝粥",
+        "price": "$3",
+        "image": "photos/八宝粥.jpg"
+      },
+      {
+        "name": "Eight-Treasure rice",
+        "chinese_name": "八宝饭",
+        "price": "$3.5",
+        "image": "photos/八宝饭.jpg"
+      },
+      {
+        "name": "Snail Rice Noodles",
+        "chinese_name": "螺蛳粉",
+        "price": "$3.5",
+        "image": "photos/螺狮粉.jpg"
+      },
+      {
+        "name": "Soy Milk Powder",
+        "chinese_name": "豆浆粉",
+        "price": "$5",
+        "image": "photos/豆浆粉.jpg"
+      },
+      {
+        "name": "Rice",
+        "chinese_name": "稻米",
+        "price": "$30",
+        "image": "photos/稻米.jpg"
+      },
+      {
+        "name": "AD Cal milk",
+        "chinese_name": "Ad钙",
+        "price": "$2 for 1",
+        "image": "photos/ad钙奶.jpg"
+      },
+      {
+        "name": "Crispy Rice Chocolate",
+        "chinese_name": "脆香米",
+        "price": "$2 for 1",
+        "image": "photos/脆香米.jpg"
+      },
+      {
+        "name": "Tao kae Noi Seewees",
+        "chinese_name": "小老板海苔",
+        "price": "$2 for 3",
+        "image": "photos/小老板海苔.jpg"
+      },
+      {
+        "name": "Dried Plum",
+        "chinese_name": "话梅",
+        "price": "$8",
+        "image": "photos/话梅.jpg"
+      },
+      {
+        "name": "Coin Chocolate",
+        "chinese_name": "钱币巧克力",
+        "price": "$1 for 3",
+        "image": "photos/钱币巧克力.jpg"
+      }
+    ]
+  },
+  {
+    "category": "Groceries",
+    "items": [
+      {
+        "name": "Lip balms",
+        "chinese_name": "润唇膏",
+        "price": "$0.5",
+        "image": "photos/润唇膏.jpg"
+      },
+      {
+        "name": "Lotion bars",
+        "chinese_name": "乳液棒",
+        "image": "photos/乳液棒.jpg"
+      },
+      {
+        "name": "Herb salves",
+        "chinese_name": "草药药膏",
+        "image": "photos/草药药膏.jpg"
+      },
+      {
+        "name": "Lavender pillows",
+        "chinese_name": "薰衣草枕头",
+        "image": "photos/薰衣草枕头.jpg"
+      },
+      {
+        "name": "Catnip cat toys",
+        "chinese_name": "猫爪玩具",
+        "image": "photos/猫爪文具.jpg"
+      }
+    ]
+  },
+  {
+    "category": "Others",
+    "items": [
+      {
+        "name": "Bracelet",
+        "chinese_name": "手链",
+        "price": "$0.5",
+        "image": "photos/手链.jpg"
+      },
+      {
+        "name": "Refrigerator magnet",
+        "chinese_name": "冰箱贴",
+        "price": "$5",
+        "image": "photos/冰箱贴.jpg"
+      },
+      {
+        "name": "Chinese knot",
+        "chinese_name": "中国结",
+        "price": "$1 for 3",
+        "image": "photos/中国结.jpg"
+      },
+      {
+        "name": "Notebook gift box",
+        "chinese_name": "笔记本礼盒",
+        "price": "$8",
+        "image": "photos/笔记本礼盒.jpg"
+      },
+      {
+        "name": "Metal bookmarks",
+        "chinese_name": "金属书签",
+        "price": "$2 for 3",
+        "image": "photos/金属书签.jpg"
+      },
+      {
+        "name": "Chinese Zodiac Blind Box",
+        "chinese_name": "十二生肖盲盒",
+        "price": "$3 for 1",
+        "image": "photos/十二生肖盲盒.jpg"
+      },
+      {
+        "name": "Duck",
+        "chinese_name": "鸭子",
+        "price": "$5",
+        "image": "photos/鸭子.jpg"
+      },
+      {
+        "name": "Press on nails",
+        "chinese_name": "穿戴甲",
+        "price": "$6 for 1 / $10 for 2",
+        "image": "photos/穿戴甲.jpg"
+      }
+    ]
+  }
+]

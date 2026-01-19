@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showtime | 2026 Horse Year Festival</title>
+  <style>
+    :root {
+      --primary-color: #d32f2f;
+      --accent-color: #ffca28;
+      --text-color: #333;
+      --bg-color: #f9f9f9;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    .page-header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      background-image: url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .schedule-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      .schedule-item {
+        flex-direction: row;
+      }
+    }
+
+    .time-badge {
+      background-color: var(--accent-color);
+      color: #333;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      min-width: 150px;
+    }
+
+    .item-content {
+      padding: 25px;
+      flex-grow: 1;
+    }
+
+    .item-content h2 {
+      margin-top: 0;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .performer-name {
+      font-size: 1.1rem;
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .song-list {
+      margin-top: 15px;
+      padding-left: 20px;
+      color: #666;
+    }
+
+    .song-list li {
+      margin-bottom: 5px;
+    }
+
+    .item-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+      .item-image {
+        width: 300px;
+        height: auto;
+      }
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="foods.html">Foods</a></li>
+        <li><a href="goods.html">Goods</a></li>
+        <li><a href="showtime.html" class="active">Showtime</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <h1>Showtime | 节目单</h1>
+  </section>
+
+  <div class="container">
+
+    <!-- Item 1 -->
+    <div class="schedule-item">
+      <div class="time-badge">12:30 - 13:00</div>
+      <img
+        src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="Band" class="item-image">
+      <div class="item-content">
+        <h2>Band Performance | 乐队表演</h2>
+        <div class="performer-name">DD Band | DD乐队</div>
+        <ul class="song-list">
+          <li>Hypotheticals</li>
+          <li>Pink Lightning (粉红色闪电)</li>
+          <li>Take Me Out</li>
+          <li>Beggin</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="schedule-item">
+      <div class="time-badge">13:10 - 13:15</div>
+      <img
+        src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="Hulusi" class="item-image">
+      <div class="item-content">
+        <h2>Hulusi Performance | 葫芦丝演奏</h2>
+        <div class="performer-name">Xianglong Yang | 杨湘龙</div>
+        <ul class="song-list">
+          <li>Horse Racing (赛马)</li>
+          <li>Dai Ethnic Love Songs (傣乡情歌)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="schedule-item">
+      <div class="time-badge">13:20 - 13:30</div>
+      <img
+        src="https://images.unsplash.com/photo-1525926477800-7a392d757569?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="Singing" class="item-image">
+      <div class="item-content">
+        <h2>Singing Duet | 演唱</h2>
+        <div class="performer-name">Xuanhao Zhao & Jinwen Chen | 赵轩皓、陈瑾闻</div>
+        <ul class="song-list">
+          <li>Tomorrow Will Be Better (明天会更好)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="schedule-item">
+      <div class="time-badge">13:35 - 13:40</div>
+      <img
+        src="https://images.unsplash.com/photo-1515096788709-a3cf4ce0a4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="Wushu" class="item-image">
+      <div class="item-content">
+        <h2>Wushu Performance | 武术表演</h2>
+        <div class="performer-name">Yuxi Xiao | 肖昱曦</div>
+        <ul class="song-list">
+          <li>Regulations on Knife Techniques (规定刀术)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="schedule-item">
+      <div class="time-badge">13:45 - 13:50</div>
+      <img
+        src="https://images.unsplash.com/photo-1516916759473-600c07bc5dae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="Singing" class="item-image">
+      <div class="item-content">
+        <h2>Singing Solo | 演唱</h2>
+        <div class="performer-name">Xiangchen Kong | 孔祥辰</div>
+        <ul class="song-list">
+          <li>Once In a Blue Moon (独上C楼)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="schedule-item">
+      <div class="time-badge">13:55 - 14:00</div>
+      <img
+        src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="Singing" class="item-image">
+      <div class="item-content">
+        <h2>Singing Solo | 演唱</h2>
+        <div class="performer-name">Yuhan Long | 龙雨涵</div>
+        <ul class="song-list">
+          <li>Unbreakable Love (永不失联的爱)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>
