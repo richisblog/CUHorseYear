@@ -5,146 +5,342 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Activities | 2026 Horse Year Festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <style>
+    /* ===== Design Tokens ===== */
     :root {
-      --primary-color: #d32f2f;
-      /* Festive Red */
-      --accent-color: #ffca28;
-      /* Gold */
-      --text-color: #333;
-      --bg-color: #f9f9f9;
+      --primary: #c62828;
+      --primary-dark: #8e0000;
+      --primary-light: #ff5f52;
+      --accent: #ffca28;
+      --accent-glow: #ffe082;
+      --text-main: #1a1a2e;
+      --text-muted: #555;
+      --bg-gradient: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+      --glass-bg: rgba(255, 255, 255, 0.95);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 16px;
+    }
+
+    /* ===== Reset & Base ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
 
+    /* ===== Header & Navigation ===== */
     header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 0;
+      background: rgba(198, 40, 40, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.5px;
     }
 
+    .logo-icon {
+      font-size: 1.6rem;
+    }
+
+    /* Desktop Nav */
     .nav-links {
-      list-style: none;
       display: flex;
-      gap: 20px;
+      list-style: none;
+      gap: 5px;
     }
 
     .nav-links a {
-      color: white;
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: 0.3s ease;
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
-      color: var(--accent-color);
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--accent);
     }
 
-    /* Active link style */
     .nav-links a.active {
-      border-bottom: 2px solid var(--accent-color);
+      background: #fff;
+      color: var(--primary);
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 2px;
+      background: white;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: white;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .menu-toggle.active .hamburger {
+      background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+
+    /* ===== Page Header ===== */
     .page-header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-      background-image: url('photos/homebackground.png');
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('photos/homebackground.png');
       background-size: cover;
       background-position: center;
-      background-blend-mode: overlay;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      margin-bottom: 40px;
     }
 
     .page-header h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      font-weight: 800;
     }
 
+    /* ===== Main Content ===== */
     .container {
       max-width: 1200px;
+      width: 100%;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 10px auto 0;
+      border-radius: 2px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
+      margin-bottom: 80px;
     }
 
     .card {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-image {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
     }
 
     .card img {
       width: 100%;
-      height: 250px;
+      height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
     }
 
     .card-content {
       padding: 25px;
       flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
     }
 
     .card-content h3 {
-      margin-top: 0;
-      color: var(--primary-color);
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: 700;
     }
 
     .card-content p {
-      color: #666;
-      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
+    .price-tag {
+      display: inline-block;
+      background: #fff8e1;
+      color: #f57f17;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* ===== Footer ===== */
     footer {
-      background-color: #333;
-      color: white;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: rgba(255, 255, 255, 0.7);
       text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
+      padding: 40px 20px;
+      margin-top: auto;
+    }
+
+    /* ===== Mobile Responsiveness ===== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(198, 40, 40, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 60px;
+        gap: 30px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        background: transparent;
+        font-size: 1.4rem;
+        width: auto;
+        display: inline-block;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--accent);
+        border-radius: 50px;
+        box-shadow: none;
+      }
+
+      .menu-toggle {
+        display: block;
+        z-index: 1001;
+      }
+
+      .page-header {
+        padding: 60px 20px;
+      }
     }
   </style>
 </head>
@@ -153,8 +349,13 @@
 
   <header>
     <nav>
-      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
-      <ul class="nav-links">
+      <a href="index.html" class="logo">
+        CU Horse Year 2026
+      </a>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <div class="hamburger"></div>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="activities.html" class="active">Activities</a></li>
         <li><a href="foods.html">Foods</a></li>
@@ -169,12 +370,13 @@
   </section>
 
   <div class="container">
-    <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 40px; font-size: 2.5rem;">Festival
-      Activities | 节日活动</h2>
+    <h2 class="section-title">Festival Activities | 节日活动</h2>
     <div class="grid">
       <!-- Activity 1 -->
       <div class="card">
-        <img src="photos/麻将.png" alt="Mahjong">
+        <div class="card-image">
+          <img src="photos/麻将.png" alt="Mahjong">
+        </div>
         <div class="card-content">
           <h3>Mahjong | 麻将</h3>
           <p>A game where strategy and luck intertwine</p>
@@ -183,7 +385,9 @@
 
       <!-- Activity 2 -->
       <div class="card">
-        <img src="photos/pingpang.png" alt="Ping Pong">
+        <div class="card-image">
+          <img src="photos/pingpang.png" alt="Ping Pong">
+        </div>
         <div class="card-content">
           <h3>Ping Pong | 乒乓球</h3>
           <p>Enjoy a friendly match</p>
@@ -192,7 +396,9 @@
 
       <!-- Activity 3 -->
       <div class="card">
-        <img src="photos/go.png" alt="Go Game">
+        <div class="card-image">
+          <img src="photos/go.png" alt="Go Game">
+        </div>
         <div class="card-content">
           <h3>Go | 围棋</h3>
           <p>A philosophical journey of black and white</p>
@@ -201,7 +407,9 @@
 
       <!-- Activity 4 -->
       <div class="card">
-        <img src="photos/投壶.png" alt="Ring Toss">
+        <div class="card-image">
+          <img src="photos/投壶.png" alt="Ring Toss">
+        </div>
         <div class="card-content">
           <h3>Ring Toss | 投壶</h3>
           <p>Win small prizes</p>
@@ -210,7 +418,9 @@
 
       <!-- Activity 5 -->
       <div class="card">
-        <img src="photos/书法.png" alt="Calligraphy">
+        <div class="card-image">
+          <img src="photos/书法.png" alt="Calligraphy">
+        </div>
         <div class="card-content">
           <h3>Calligraphy | 书法</h3>
           <p>Try Chinese calligraphy</p>
@@ -219,7 +429,9 @@
 
       <!-- Activity 6 -->
       <div class="card">
-        <img src="photos/鲁班锁.png" alt="Luban Lock">
+        <div class="card-image">
+          <img src="photos/鲁班锁.png" alt="Luban Lock">
+        </div>
         <div class="card-content">
           <h3>Luban Lock | 鲁班锁</h3>
           <p>Chinese traditional brain teasers</p>
@@ -228,7 +440,9 @@
 
       <!-- Activity 7 -->
       <div class="card">
-        <img src="photos/七巧板.png" alt="Tangrams">
+        <div class="card-image">
+          <img src="photos/七巧板.png" alt="Tangrams">
+        </div>
         <div class="card-content">
           <h3>Tangrams | 七巧板</h3>
           <p>Explore Creativity with shapes</p>
@@ -237,7 +451,9 @@
 
       <!-- Activity 8 -->
       <div class="card">
-        <img src="photos/求签.png" alt="Divination Sticks">
+        <div class="card-image">
+          <img src="photos/求签.png" alt="Divination Sticks">
+        </div>
         <div class="card-content">
           <h3>Divination Sticks | 求签</h3>
           <p>Discover your Future</p>
@@ -246,7 +462,9 @@
 
       <!-- Activity 9 -->
       <div class="card">
-        <img src="photos/夹乒乓球.png" alt="Chopsticks Game">
+        <div class="card-image">
+          <img src="photos/夹乒乓球.png" alt="Chopsticks Game">
+        </div>
         <div class="card-content">
           <h3>夹乒乓球 | Chopsticks Game</h3>
           <p>Enjoy a traditional game of skill</p>
@@ -255,7 +473,9 @@
 
       <!-- Activity 10 -->
       <div class="card">
-        <img src="photos/皮影.png" alt="Shadow Puppets">
+        <div class="card-image">
+          <img src="photos/皮影.png" alt="Shadow Puppets">
+        </div>
         <div class="card-content">
           <h3>Shadow Puppets | 皮影</h3>
           <p>Chinese traditional puppets</p>
@@ -264,80 +484,95 @@
     </div>
 
     <!-- Paid Section -->
-    <h2 style="text-align: center; color: var(--primary-color); margin: 60px 0 40px; font-size: 2.5rem;">Paid Projects |
-      收费项目</h2>
+    <h2 class="section-title">Paid Projects | 收费项目</h2>
     <div class="grid">
       <!-- Paid 1 -->
       <div class="card">
-        <img src="photos/正常摄影.jpg" alt="Normal photography">
+        <div class="card-image">
+          <img src="photos/正常摄影.jpg" alt="Normal photography">
+        </div>
         <div class="card-content">
           <h3>Digital Photography | 数码摄影</h3>
-          <p>$2 for 1 | $5 for 3</p>
+          <div class="price-tag">$2 for 1 | $5 for 3</div>
         </div>
       </div>
 
       <!-- Paid 2 -->
       <div class="card">
-        <img src="photos/财神爷合影.png" alt="Hanfu photography">
+        <div class="card-image">
+          <img src="photos/财神爷合影.png" alt="Hanfu photography">
+        </div>
         <div class="card-content">
           <h3>Photo with God of Wealth | 财神爷合影</h3>
-          <p>$3 for 1 (Digital Camera)</p>
+          <div class="price-tag">$3 for 1 (Digital Camera)</div>
         </div>
       </div>
 
       <!-- Paid 3 -->
       <div class="card">
-        <img src="photos/拍立得.jpg" alt="Instant photo">
+        <div class="card-image">
+          <img src="photos/拍立得.jpg" alt="Instant photo">
+        </div>
         <div class="card-content">
           <h3>Instant photo | 拍立得</h3>
-          <p>$3 for 1 | $5 for 2</p>
+          <div class="price-tag">$3 for 1 | $5 for 2</div>
         </div>
       </div>
 
       <!-- Paid 4 -->
       <div class="card">
-        <img src="photos/剪纸.png" alt="Paper cutting">
+        <div class="card-image">
+          <img src="photos/剪纸.png" alt="Paper cutting">
+        </div>
         <div class="card-content">
           <h3>Paper cutting | 剪纸</h3>
-          <p>$2</p>
+          <div class="price-tag">$2</div>
         </div>
       </div>
 
       <!-- Paid 5 -->
       <div class="card">
-        <img src="photos/中国结.png" alt="Chinese Knot">
+        <div class="card-image">
+          <img src="photos/中国结.png" alt="Chinese Knot">
+        </div>
         <div class="card-content">
           <h3>Chinese Knot | 中国结</h3>
-          <p>$2</p>
-          <p style="font-size: 0.9rem;">Make your own symbolic decoration</p>
+          <p style="margin-bottom: 5px;">Make your own symbolic decoration</p>
+          <div class="price-tag">$2</div>
         </div>
       </div>
 
       <!-- Paid 6 -->
       <div class="card">
-        <img src="photos/脸谱彩绘.png" alt="Face painting">
+        <div class="card-image">
+          <img src="photos/脸谱彩绘.png" alt="Face painting">
+        </div>
         <div class="card-content">
           <h3>Face painting | 脸谱彩绘</h3>
-          <p>$3</p>
-          <p style="font-size: 0.9rem;">Traditional face art</p>
+          <p style="margin-bottom: 5px;">Traditional face art</p>
+          <div class="price-tag">$3</div>
         </div>
       </div>
 
       <!-- Paid 7 -->
       <div class="card">
-        <img src="photos/漆扇.png" alt="Lacquer Fan">
+        <div class="card-image">
+          <img src="photos/漆扇.png" alt="Lacquer Fan">
+        </div>
         <div class="card-content">
           <h3>Lacquer Fan | 漆扇</h3>
-          <p>$5</p>
+          <div class="price-tag">$5</div>
         </div>
       </div>
 
       <!-- Paid 8 -->
       <div class="card">
-        <img src="photos/串珠.png" alt="Bead Stringing">
+        <div class="card-image">
+          <img src="photos/串珠.png" alt="Bead Stringing">
+        </div>
         <div class="card-content">
           <h3>Bead Stringing | 串珠</h3>
-          <p>$2</p>
+          <div class="price-tag">$2</div>
         </div>
       </div>
     </div>
@@ -346,6 +581,25 @@
   <footer>
     <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 

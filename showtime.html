@@ -5,171 +5,411 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Showtime | 2026 Horse Year Festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <style>
+    /* ===== Design Tokens ===== */
     :root {
-      --primary-color: #d32f2f;
-      --accent-color: #ffca28;
-      --text-color: #333;
-      --bg-color: #f9f9f9;
+      --primary: #c62828;
+      /* Deep Red */
+      --primary-dark: #8e0000;
+      --primary-light: #ff5f52;
+      --accent: #ffca28;
+      /* Gold */
+      --accent-glow: #ffe082;
+      --text-main: #1a1a2e;
+      --text-muted: #555;
+      --bg-gradient: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --shadow-soft: 0 10px 40px -10px rgba(198, 40, 40, 0.15);
+      --radius: 16px;
+    }
+
+    /* ===== Reset & Base ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
 
+    /* ===== Header & Navigation ===== */
     header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 0;
+      background: rgba(198, 40, 40, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: white;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
       color: white;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent-color);
-    }
-
-    .nav-links a.active {
-      border-bottom: 2px solid var(--accent-color);
-    }
-
-    .page-header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-      background-image: url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: overlay;
-    }
-
-    .page-header h1 {
-      font-size: 3rem;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .schedule-item {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      .schedule-item {
-        flex-direction: row;
-      }
-    }
-
-    .time-badge {
-      background-color: var(--accent-color);
-      color: #333;
-      padding: 10px 20px;
-      font-weight: bold;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      min-width: 150px;
-    }
-
-    .item-content {
-      padding: 25px;
-      flex-grow: 1;
-    }
-
-    .item-content h2 {
-      margin-top: 0;
-      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 1.4rem;
       display: flex;
       align-items: center;
       gap: 10px;
+      letter-spacing: -0.5px;
     }
 
-    .performer-name {
-      font-size: 1.1rem;
-      color: #555;
+    .logo-icon {
+      font-size: 1.6rem;
+    }
+
+    /* Desktop Nav */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 5px;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--accent);
+    }
+
+    .nav-links a.active {
+      background: #fff;
+      color: var(--primary);
       font-weight: 600;
-      margin-bottom: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .song-list {
-      margin-top: 15px;
-      padding-left: 20px;
-      color: #666;
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
     }
 
-    .song-list li {
-      margin-bottom: 5px;
+    .hamburger {
+      width: 24px;
+      height: 2px;
+      background: white;
+      position: relative;
+      transition: 0.3s;
     }
 
-    .item-image {
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: white;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .menu-toggle.active .hamburger {
+      background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* ===== Main Content ===== */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative Background Elements */
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .bg-1 {
+      top: -10%;
+      right: -5%;
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 202, 40, 0.3);
+    }
+
+    .bg-2 {
+      bottom: -10%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(198, 40, 40, 0.15);
+    }
+
+    /* Hero Section */
+    .coming-soon-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      padding: 60px 40px;
+      border-radius: 24px;
+      text-align: center;
+      max-width: 800px;
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
     }
 
-    @media (min-width: 768px) {
-      .item-image {
-        width: 300px;
-        height: auto;
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
 
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
+    .icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      box-shadow: 0 10px 20px rgba(198, 40, 40, 0.3);
+      font-size: 2.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .subtitle-cn {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    /* Countdown Timer */
+    .countdown-container {
       margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .countdown-label {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .time-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 70px;
+    }
+
+    .time-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .time-label {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    .separator {
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 300;
+      margin-top: -5px;
+    }
+
+    /* Return Home Button */
+    .btn-home {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(198, 40, 40, 0.2);
+    }
+
+    .btn-home:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(198, 40, 40, 0.3);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 0.9rem;
+      background: white;
+    }
+
+    /* ===== Mobile Responsiveness ===== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(198, 40, 40, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 60px;
+        gap: 30px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        background: transparent;
+        font-size: 1.4rem;
+        width: auto;
+        display: inline-block;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--accent);
+        border-radius: 50px;
+        box-shadow: none;
+      }
+
+      .menu-toggle {
+        display: block;
+        z-index: 1001;
+      }
+
+      .countdown {
+        gap: 10px;
+      }
+
+      .time-value {
+        font-size: 1.5rem;
+      }
+
+      .time-unit {
+        min-width: 55px;
+      }
+
+      .separator {
+        display: none;
+      }
+
+      .coming-soon-card {
+        padding: 40px 20px;
+      }
     }
   </style>
 </head>
@@ -178,8 +418,13 @@
 
   <header>
     <nav>
-      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
-      <ul class="nav-links">
+      <a href="index.html" class="logo">
+        CU Horse Year 2026
+      </a>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <div class="hamburger"></div>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="activities.html">Activities</a></li>
         <li><a href="foods.html">Foods</a></li>
@@ -189,112 +434,102 @@
     </nav>
   </header>
 
-  <section class="page-header">
-    <h1>Showtime | 节目单</h1>
-  </section>
+  <main>
+    <!-- Background blurred orbs -->
+    <div class="bg-circle bg-1"></div>
+    <div class="bg-circle bg-2"></div>
 
-  <div class="container">
-
-    <!-- Item 1 -->
-    <div class="schedule-item">
-      <div class="time-badge">12:30 - 13:00</div>
-      <img
-        src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        alt="Band" class="item-image">
-      <div class="item-content">
-        <h2>Band Performance | 乐队表演</h2>
-        <div class="performer-name">DD Band | DD乐队</div>
-        <ul class="song-list">
-          <li>Hypotheticals</li>
-          <li>Pink Lightning (粉红色闪电)</li>
-          <li>Take Me Out</li>
-          <li>Beggin</li>
-        </ul>
+    <div class="coming-soon-card">
+      <div class="icon-wrapper">
       </div>
-    </div>
 
-    <!-- Item 2 -->
-    <div class="schedule-item">
-      <div class="time-badge">13:10 - 13:15</div>
-      <img
-        src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        alt="Hulusi" class="item-image">
-      <div class="item-content">
-        <h2>Hulusi Performance | 葫芦丝演奏</h2>
-        <div class="performer-name">Xianglong Yang | 杨湘龙</div>
-        <ul class="song-list">
-          <li>Horse Racing (赛马)</li>
-          <li>Dai Ethnic Love Songs (傣乡情歌)</li>
-        </ul>
+      <h1>Showtime</h1>
+      <div class="subtitle-cn">精彩节目 敬请期待</div>
+
+      <p class="description">
+        We are curating an amazing lineup of performances for the 2026 Horse Year Festival.
+        Detailed schedule will be released soon!
+        <br><br>
+        节目单正在精心筹备中，届时将有乐队、舞蹈、武术等精彩表演！
+      </p>
+
+      <div class="countdown-container">
+        <div class="countdown-label">Festival Starts In</div>
+        <div class="countdown" id="countdown">
+          <div class="time-unit">
+            <span class="time-value" id="days">00</span>
+            <span class="time-label">Days</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-unit">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-unit">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">Mins</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-unit">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">Secs</span>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Item 3 -->
-    <div class="schedule-item">
-      <div class="time-badge">13:20 - 13:30</div>
-      <img
-        src="https://images.unsplash.com/photo-1525926477800-7a392d757569?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        alt="Singing" class="item-image">
-      <div class="item-content">
-        <h2>Singing Duet | 演唱</h2>
-        <div class="performer-name">Xuanhao Zhao & Jinwen Chen | 赵轩皓、陈瑾闻</div>
-        <ul class="song-list">
-          <li>Tomorrow Will Be Better (明天会更好)</li>
-        </ul>
-      </div>
+      <a href="index.html" class="btn-home">Back to Home</a>
     </div>
-
-    <!-- Item 4 -->
-    <div class="schedule-item">
-      <div class="time-badge">13:35 - 13:40</div>
-      <img
-        src="https://images.unsplash.com/photo-1515096788709-a3cf4ce0a4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        alt="Wushu" class="item-image">
-      <div class="item-content">
-        <h2>Wushu Performance | 武术表演</h2>
-        <div class="performer-name">Yuxi Xiao | 肖昱曦</div>
-        <ul class="song-list">
-          <li>Regulations on Knife Techniques (规定刀术)</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Item 5 -->
-    <div class="schedule-item">
-      <div class="time-badge">13:45 - 13:50</div>
-      <img
-        src="https://images.unsplash.com/photo-1516916759473-600c07bc5dae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        alt="Singing" class="item-image">
-      <div class="item-content">
-        <h2>Singing Solo | 演唱</h2>
-        <div class="performer-name">Xiangchen Kong | 孔祥辰</div>
-        <ul class="song-list">
-          <li>Once In a Blue Moon (独上C楼)</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Item 6 -->
-    <div class="schedule-item">
-      <div class="time-badge">13:55 - 14:00</div>
-      <img
-        src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        alt="Singing" class="item-image">
-      <div class="item-content">
-        <h2>Singing Solo | 演唱</h2>
-        <div class="performer-name">Yuhan Long | 龙雨涵</div>
-        <ul class="song-list">
-          <li>Unbreakable Love (永不失联的爱)</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+  </main>
 
   <footer>
     <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
   </footer>
 
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Countdown Timer Logic
+    const festivalDate = new Date('February 28, 2026 16:00:00 PST').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = festivalDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown').innerHTML = '<div class="time-value">Event Started!</div>';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+      document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+      document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+      document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+  </script>
 </body>
 
 </html>

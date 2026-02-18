@@ -5,181 +5,357 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goods | 2026 Horse Year Festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <style>
+    /* ===== Design Tokens ===== */
     :root {
-      --primary-color: #d32f2f;
-      --accent-color: #ffca28;
-      --text-color: #333;
-      --bg-color: #f9f9f9;
+      --primary: #c62828;
+      --primary-dark: #8e0000;
+      --primary-light: #ff5f52;
+      --accent: #ffca28;
+      --accent-glow: #ffe082;
+      --text-main: #1a1a2e;
+      --text-muted: #555;
+      --bg-gradient: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+      --glass-bg: rgba(255, 255, 255, 0.95);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 16px;
+    }
+
+    /* ===== Reset & Base ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
 
+    /* ===== Header & Navigation ===== */
     header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 0;
+      background: rgba(198, 40, 40, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.5px;
     }
 
+    .logo-icon {
+      font-size: 1.6rem;
+    }
+
+    /* Desktop Nav */
     .nav-links {
-      list-style: none;
       display: flex;
-      gap: 20px;
+      list-style: none;
+      gap: 5px;
     }
 
     .nav-links a {
-      color: white;
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: 0.3s ease;
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
-      color: var(--accent-color);
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--accent);
     }
 
     .nav-links a.active {
-      border-bottom: 2px solid var(--accent-color);
+      background: #fff;
+      color: var(--primary);
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 2px;
+      background: white;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: white;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .menu-toggle.active .hamburger {
+      background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+
+    /* ===== Page Header ===== */
     .page-header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-      background-image: url('https://images.unsplash.com/photo-1473187983305-f615310e7daa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1473187983305-f615310e7daa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
-      background-blend-mode: overlay;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      margin-bottom: 40px;
     }
 
     .page-header h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      font-weight: 800;
     }
 
+    /* ===== Main Content ===== */
     .container {
       max-width: 1200px;
+      width: 100%;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 0 24px;
     }
 
     .category-section {
-      margin-bottom: 60px;
+      margin-bottom: 80px;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2rem;
-      color: var(--primary-color);
-      margin-bottom: 30px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
+      color: var(--primary);
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 10px auto 0;
+      border-radius: 2px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 30px;
     }
 
     .card {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
     }
 
     .card-image-container {
-      height: 200px;
+      height: 240px;
       overflow: hidden;
-      background-color: #eee;
+      background-color: #f8f8f8;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
-    .card img {
+    .card-image-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-image-container img {
+      transform: scale(1.05);
     }
 
     .card-content {
-      padding: 20px;
+      padding: 24px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
 
     .card-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #333;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+      line-height: 1.3;
     }
 
     .card-subtitle {
       font-size: 1rem;
-      color: #666;
-      margin-bottom: 15px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 300;
     }
 
     .card-price {
       margin-top: auto;
       font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--primary-color);
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(198, 40, 40, 0.08);
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+      align-self: flex-start;
     }
 
     .loading-indicator {
       text-align: center;
+      padding: 80px;
       font-size: 1.2rem;
-      color: #666;
-      padding: 50px;
+      color: var(--text-muted);
     }
 
+    /* ===== Footer ===== */
     footer {
-      background-color: #333;
-      color: white;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: rgba(255, 255, 255, 0.7);
       text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
+      padding: 40px 20px;
+      margin-top: auto;
+    }
+
+    /* ===== Mobile Responsiveness ===== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(198, 40, 40, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 60px;
+        gap: 30px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        background: transparent;
+        font-size: 1.4rem;
+        width: auto;
+        display: inline-block;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--accent);
+        border-radius: 50px;
+        box-shadow: none;
+      }
+
+      .menu-toggle {
+        display: block;
+        z-index: 1001;
+      }
+
+      .page-header {
+        padding: 60px 20px;
+      }
     }
   </style>
 </head>
@@ -188,8 +364,13 @@
 
   <header>
     <nav>
-      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
-      <ul class="nav-links">
+      <a href="index.html" class="logo">
+        CU Horse Year 2026
+      </a>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <div class="hamburger"></div>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="activities.html">Activities</a></li>
         <li><a href="foods.html">Foods</a></li>
@@ -204,7 +385,9 @@
   </section>
 
   <div class="container" id="products-container">
-    <div class="loading-indicator">Loading products...</div>
+    <div class="loading-indicator">
+      Loading products...
+    </div>
   </div>
 
   <footer>
@@ -215,7 +398,7 @@
     // Inlined product data to avoid CORS issues when opening file locally
     const productsData = [
       {
-        "category": "Snacks",
+        "category": "Snacks | 零食",
         "items": [
           {
             "name": "Lay's chips",
@@ -328,7 +511,7 @@
         ]
       },
       {
-        "category": "Groceries",
+        "category": "Groceries | 杂货",
         "items": [
           {
             "name": "Lip balms",
@@ -359,7 +542,7 @@
         ]
       },
       {
-        "category": "Others",
+        "category": "Others | 其他",
         "items": [
           {
             "name": "Bracelet",
@@ -421,7 +604,7 @@
         const section = document.createElement('div');
         section.className = 'category-section';
 
-        const title = document.createElement('div');
+        const title = document.createElement('h2');
         title.className = 'section-title';
         title.textContent = category.category;
         section.appendChild(title);
@@ -438,7 +621,9 @@
             imageHtml = `<img src="${item.image}" alt="${item.name}" loading="lazy">`;
           } else {
             // Placeholder if no image
-            imageHtml = `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#adb5bd;">No Image</div>`;
+            imageHtml = `<div style="width:100%; height:100%; display:flex; flexDirection:column; align-items:center; justify-content:center; color:#adb5bd; background:#f0f0f0;">
+              <span>No Image</span>
+            </div>`;
           }
 
           const priceHtml = item.price ? `<div class="card-price">${item.price}</div>` : '';
@@ -464,6 +649,23 @@
     // Call renderProducts directly with the synced data
     document.addEventListener('DOMContentLoaded', () => {
       renderProducts(productsData);
+
+      // Mobile Menu Toggle logic
+      const menuToggle = document.getElementById('mobile-menu');
+      const navLinks = document.getElementById('nav-links');
+
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
     });
   </script>
 

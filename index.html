@@ -4,171 +4,459 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CU Enchanged Horse Year Festival | 2026 马年庙会</title>
+  <title>CU Horse Year Festival 2026 | 马年庙会</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <style>
+    /* ===== Design Tokens ===== */
     :root {
-      --primary-color: #d32f2f;
-      /* Festive Red */
-      --accent-color: #ffca28;
-      /* Gold */
-      --text-color: #333;
-      --bg-color: #f9f9f9;
+      --primary: #c62828;
+      --primary-dark: #8e0000;
+      --primary-light: #ff5f52;
+      --accent: #ffca28;
+      --accent-glow: #ffe082;
+      --text-main: #1a1a2e;
+      --text-muted: #555;
+      --bg-gradient: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+      --glass-bg: rgba(255, 255, 255, 0.95);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 16px;
+    }
+
+    /* ===== Reset & Base ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
 
+    /* ===== Header & Navigation ===== */
     header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 0;
+      background: rgba(198, 40, 40, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.5px;
     }
 
+    .logo-icon {
+      font-size: 1.6rem;
+    }
+
+    /* Desktop Nav */
     .nav-links {
-      list-style: none;
       display: flex;
-      gap: 20px;
+      list-style: none;
+      gap: 5px;
     }
 
     .nav-links a {
-      color: white;
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: 0.3s ease;
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
-      color: var(--accent-color);
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--accent);
     }
 
+    .nav-links a.active {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 2px;
+      background: white;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: white;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .menu-toggle.active .hamburger {
+      background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* ===== Hero Section ===== */
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('photos/homebackground.png');
-      background-size: cover;
-      background-position: center;
-      height: 60vh;
+      position: relative;
+      height: 75vh;
+      min-height: 500px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: white;
-      padding: 0 20px;
+      padding: 20px;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('photos/homebackground.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 5px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      font-weight: 800;
+      line-height: 1.1;
     }
 
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
+    .hero h1 span {
+      display: block;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
       font-weight: 400;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      margin-top: 10px;
+      color: var(--accent);
     }
 
     .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 5px 15px;
-      border-radius: 20px;
-    }
-
-    .btn {
+      font-size: 1.2rem;
+      margin: 20px auto 30px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
+      padding: 10px 25px;
+      border-radius: 50px;
       display: inline-block;
-      background-color: var(--accent-color);
-      color: #333;
-      padding: 10px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary-dark);
+      padding: 16px 36px;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: transform 0.2s, background-color 0.2s;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 202, 40, 0.4);
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      background-color: #ffb300;
+    .btn-hero:hover {
+      transform: translateY(-3px);
+      background: white;
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
     }
 
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== Main Content ===== */
     .container {
       max-width: 1200px;
+      width: 100%;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 0 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
     }
 
     .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      color: var(--primary-color);
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
 
     .card {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
     }
 
-    .card img {
+    .card-image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .card-image img {
       width: 100%;
-      height: 200px;
+      height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.05);
     }
 
     .card-content {
-      padding: 20px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
     .card-content h3 {
-      margin-top: 0;
-      color: var(--primary-color);
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 12px;
     }
 
-    footer {
-      background-color: #333;
-      color: white;
+    .card-content p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: gap 0.2s;
+    }
+
+    .card-link::after {
+      content: '→';
+      margin-left: 5px;
+      transition: margin 0.2s;
+    }
+
+    .card-link:hover::after {
+      margin-left: 10px;
+    }
+
+    /* ===== Info Section ===== */
+    .info-section {
+      background: white;
+      padding: 60px 20px;
       text-align: center;
-      padding: 20px 0;
       margin-top: 40px;
+      border-top: 1px solid #eee;
+    }
+
+    .info-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .info-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .info-label {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .info-value {
+      color: var(--text-muted);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: auto;
+    }
+
+    /* ===== Mobile Responsiveness ===== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(198, 40, 40, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 60px;
+        gap: 30px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        background: transparent;
+        font-size: 1.4rem;
+        width: auto;
+        display: inline-block;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--accent);
+        border-radius: 50px;
+      }
+
+      .menu-toggle {
+        display: block;
+        z-index: 1001;
+        /* Ensure above menu if needed, though header is 1000, hamburger is inside header */
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        padding: 8px 15px;
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -177,9 +465,14 @@
 
   <header>
     <nav>
-      <a href="index.html" class="logo">CU 2026 Horse Year Festival</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+      <a href="index.html" class="logo">
+        CU Horse Year 2026
+      </a>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <div class="hamburger"></div>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="activities.html">Activities</a></li>
         <li><a href="foods.html">Foods</a></li>
         <li><a href="goods.html">Goods</a></li>
@@ -189,70 +482,115 @@
   </header>
 
   <section class="hero">
-    <h1>2026 马年马到成功</h1>
-    <h2>Spirit of the Horse Festival</h2>
-    <p>ime：feb 22 12pm-5pm ｜Venue：Farmer's Market (301 C St, Davis, CA 95616)</p>
-    <a href="activities.html" class="btn">Explore Activities</a>
+    <div class="hero-content">
+      <h1>2026 马到成功 <span>Spirit of the Horse Festival</span></h1>
+      <p>Feb 28, 4pm &bull; Farmer's Market, Davis (301 C St)</p>
+      <a href="activities.html" class="btn-hero">Explore Activities</a>
+    </div>
   </section>
 
   <div class="container">
-    <h2 class="section-title">Festival Highlights</h2>
+    <div class="section-header">
+      <h2 class="section-title">Festival Highlights</h2>
+      <p class="section-subtitle">Experience the vibrant culture and celebration</p>
+    </div>
+
     <div class="grid">
       <div class="card">
-        <img src="photos/书法.png" alt="Activities">
+        <div class="card-image">
+          <img src="photos/书法.png" alt="Activities">
+        </div>
         <div class="card-content">
           <h3>Activities | 活动</h3>
           <p>Experience traditional games, performances, and interactive workshops for all ages.</p>
-          <a href="activities.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Learn
-            More &rarr;</a>
+          <a href="activities.html" class="card-link">Learn More</a>
         </div>
       </div>
+
       <div class="card">
-        <img src="photos/投壶.png" alt="Foods">
+        <div class="card-image">
+          <img src="photos/投壶.png" alt="Foods">
+        </div>
         <div class="card-content">
           <h3>Foods | 美食</h3>
-          <p>Savor delicious traditional snacks and street foods that bring the taste of home.</p>
-          <a href="foods.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">View Menu
-            &rarr;</a>
+          <p>Savor delicious traditional dumplings, snacks, and street foods that bring the taste of home.</p>
+          <a href="foods.html" class="card-link">View Menu</a>
         </div>
       </div>
+
       <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-          alt="Goods">
+        <div class="card-image">
+          <img
+            src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            alt="Goods">
+        </div>
         <div class="card-content">
           <h3>Goods | 商品</h3>
-          <p>Browse our market for unique souvenirs, handicrafts, and festival merchandise.</p>
-          <a href="goods.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Shop Now
-            &rarr;</a>
+          <p>Browse our market for unique souvenirs, handicrafts, and cultural festival merchandise.</p>
+          <a href="goods.html" class="card-link">Shop Now</a>
         </div>
       </div>
+
       <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-          alt="Showtime">
+        <div class="card-image">
+          <img
+            src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            alt="Showtime">
+        </div>
         <div class="card-content">
           <h3>Showtime | 节目单</h3>
           <p>Don't miss our exciting line-up of live performances, music, and cultural shows.</p>
-          <a href="showtime.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">View
-            Schedule
-            &rarr;</a>
+          <a href="showtime.html" class="card-link">View Schedule</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <h2 class="section-title">About the Event</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-      <strong>Time:</strong> Feb 22, 12pm - 5pm<br>
-      <strong>Venue:</strong> Farmer's Market (301 C St, Davis, CA 95616)
-    </p>
-  </div>
+  <section class="info-section">
+    <div class="info-content">
+      <h2 class="section-title" style="font-size: 2rem;">Event Details</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon"></div>
+          <div class="info-label">Date</div>
+          <div class="info-value">Feb 28, 2026</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"></div>
+          <div class="info-label">Time</div>
+          <div class="info-value">4:00 PM</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"></div>
+          <div class="info-label">Venue</div>
+          <div class="info-value">Farmer's Market<br>301 C St, Davis, CA</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 
