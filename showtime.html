@@ -8,25 +8,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Serif+SC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400&display=swap"
     rel="stylesheet">
   <style>
     /* ===== Design Tokens ===== */
     :root {
-      --primary: #c62828;
-      /* Deep Red */
-      --primary-dark: #8e0000;
-      --primary-light: #ff5f52;
-      --accent: #ffca28;
-      /* Gold */
-      --accent-glow: #ffe082;
-      --text-main: #1a1a2e;
-      --text-muted: #555;
-      --bg-gradient: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
-      --glass-bg: rgba(255, 255, 255, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.6);
-      --shadow-soft: 0 10px 40px -10px rgba(198, 40, 40, 0.15);
-      --radius: 16px;
+      --bg-color: #F5EAE4;
+      --brick-red: #8B2E1A;
+      --accent-red: #A63C25;
+      --charcoal: #2C2C2C;
+      --white: #FFFFFF;
     }
 
     /* ===== Reset & Base ===== */
@@ -39,18 +30,32 @@
     }
 
     body {
-      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-main);
+      font-family: 'Noto Serif SC', serif;
+      background-color: var(--bg-color);
+      color: var(--charcoal);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
     }
 
+    /* Decorative Background Image */
+    .bg-decoration {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+
     /* ===== Header & Navigation ===== */
     header {
-      background: rgba(198, 40, 40, 0.95);
+      background: rgba(139, 46, 26, 0.95);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       position: sticky;
@@ -72,18 +77,9 @@
       color: white;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      letter-spacing: -0.5px;
+      font-size: 1.2rem;
     }
 
-    .logo-icon {
-      font-size: 1.6rem;
-    }
-
-    /* Desktop Nav */
     .nav-links {
       display: flex;
       list-style: none;
@@ -96,23 +92,17 @@
       padding: 8px 16px;
       border-radius: 8px;
       font-weight: 500;
-      transition: 0.3s ease;
-      font-size: 0.95rem;
+      transition: 0.3s;
+      font-size: 0.9rem;
     }
 
-    .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--accent);
-    }
-
+    .nav-links a:hover,
     .nav-links a.active {
-      background: #fff;
-      color: var(--primary);
-      font-weight: 600;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
     }
 
-    /* Mobile Menu Button */
+    /* Mobile Menu */
     .menu-toggle {
       display: none;
       background: none;
@@ -126,7 +116,6 @@
       height: 2px;
       background: white;
       position: relative;
-      transition: 0.3s;
     }
 
     .hamburger::before,
@@ -148,203 +137,147 @@
       top: 8px;
     }
 
-    .menu-toggle.active .hamburger {
-      background: transparent;
-    }
-
-    .menu-toggle.active .hamburger::before {
-      top: 0;
-      transform: rotate(45deg);
-    }
-
-    .menu-toggle.active .hamburger::after {
-      top: 0;
-      transform: rotate(-45deg);
-    }
-
     /* ===== Main Content ===== */
     main {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
+      padding: 60px 20px 100px;
     }
 
-    /* Decorative Background Elements */
-    .bg-circle {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      z-index: -1;
-      opacity: 0.6;
-    }
-
-    .bg-1 {
-      top: -10%;
-      right: -5%;
-      width: 400px;
-      height: 400px;
-      background: rgba(255, 202, 40, 0.3);
-    }
-
-    .bg-2 {
-      bottom: -10%;
-      left: -10%;
-      width: 500px;
-      height: 500px;
-      background: rgba(198, 40, 40, 0.15);
-    }
-
-    /* Hero Section */
-    .coming-soon-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      padding: 60px 40px;
-      border-radius: 24px;
+    .title-area {
       text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .title-area h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 5rem;
+      color: var(--brick-red);
+      margin: 0;
+      font-weight: 700;
+    }
+
+    /* Torn Paper Card */
+    .schedule-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       max-width: 800px;
       width: 100%;
-      box-shadow: var(--shadow-soft);
+      padding: 80px 40px;
       position: relative;
-      overflow: hidden;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease-out forwards;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+      /* Jagged edge effect */
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,2 L2,0 L4,3 L6,1 L8,3 L10,1 L12,3 L14,1 L16,3 L18,1 L20,3 L22,1 L24,3 L26,1 L28,3 L30,1 L32,3 L34,1 L36,3 L38,1 L40,3 L42,1 L44,3 L46,1 L48,3 L50,1 L52,3 L54,1 L56,3 L58,1 L60,3 L62,1 L64,3 L66,1 L68,3 L70,1 L72,3 L74,1 L76,3 L78,1 L80,3 L82,1 L84,3 L86,1 L88,3 L90,1 L92,3 L94,1 L96,3 L98,1 L100,2 V98 L98,100 L96,97 L94,100 L92,97 L90,100 L88,97 L86,100 L84,97 L82,100 L80,97 L78,100 L76,97 L74,100 L72,97 L70,100 L68,97 L66,100 L64,97 L62,100 L60,97 L58,100 L56,97 L54,100 L52,97 L50,100 L48,97 L46,100 L44,97 L42,100 L40,97 L38,100 L36,97 L34,100 L32,97 L30,100 L28,97 L26,100 L24,97 L23,100 L22,97 L21,100 L20,97 L19,100 L18,97 L17,100 L16,97 L15,100 L14,97 L13,100 L12,97 L10,100 L8,97 L6,100 L4,97 L2,100 L0,98 Z' fill='black'/%3E%3C/svg%3E");
     }
 
-    @keyframes fadeInUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
+
+    .schedule-table {
+      width: 100%;
+    }
+
+    .schedule-item {
+      display: flex;
+      padding: 20px 0;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+    }
+
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+
+    .time-col {
+      width: 30%;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      font-weight: 400;
+      padding-right: 20px;
+    }
+
+    .program-col {
+      width: 70%;
+      text-align: center;
+    }
+
+    .program-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--charcoal);
+    }
+
+
+    .performer {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      font-weight: 300;
+      opacity: 0.8;
+    }
+
+    /* ===== Footer Area ===== */
+    .poster-footer {
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .footer-text-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.22rem;
+      color: var(--brick-red);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .footer-text-mono {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      color: var(--brick-red);
+      letter-spacing: 0.6rem;
+      font-weight: 400;
+    }
+
+    /* Site Footer */
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #888;
+      font-size: 0.8rem;
+    }
+
+    /* ===== Responsiveness ===== */
+    @media (max-width: 768px) {
+      .bg-decoration {
+        opacity: 0.4;
+      }
+
+      .title-area h1 {
+        font-size: 3.5rem;
+      }
+
+      .schedule-card {
+        padding: 50px 20px;
+      }
+
+      .schedule-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .time-col {
+        width: 100%;
+        margin-bottom: 10px;
+        padding-right: 0;
+        font-size: 1rem;
+      }
+
+      .program-col {
+        width: 100%;
       }
     }
 
-    .icon-wrapper {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 30px;
-      box-shadow: 0 10px 20px rgba(198, 40, 40, 0.3);
-      font-size: 2.5rem;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 10px;
-      background: linear-gradient(45deg, var(--primary-dark), var(--primary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.2;
-    }
-
-    .subtitle-cn {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      color: var(--primary);
-      margin-bottom: 30px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    .description {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-      max-width: 500px;
-      margin: 0 auto 40px;
-    }
-
-    /* Countdown Timer */
-    .countdown-container {
-      margin-top: 40px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .countdown-label {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      color: #888;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .time-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 70px;
-    }
-
-    .time-value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      font-variant-numeric: tabular-nums;
-      line-height: 1;
-    }
-
-    .time-label {
-      font-size: 0.75rem;
-      color: #999;
-      margin-top: 5px;
-      text-transform: uppercase;
-    }
-
-    .separator {
-      font-size: 2rem;
-      color: var(--accent);
-      font-weight: 300;
-      margin-top: -5px;
-    }
-
-    /* Return Home Button */
-    .btn-home {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 30px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s;
-      box-shadow: 0 5px 15px rgba(198, 40, 40, 0.2);
-    }
-
-    .btn-home:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(198, 40, 40, 0.3);
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #888;
-      font-size: 0.9rem;
-      background: white;
-    }
-
-    /* ===== Mobile Responsiveness ===== */
     @media (max-width: 1024px) {
       .nav-links {
         position: fixed;
@@ -352,15 +285,12 @@
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(198, 40, 40, 0.98);
-        backdrop-filter: blur(10px);
+        background: rgba(139, 46, 26, 0.98);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 60px;
-        gap: 30px;
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.4s;
         z-index: 999;
       }
 
@@ -369,46 +299,13 @@
       }
 
       .nav-links a {
-        color: white;
-        padding: 12px 24px;
-        text-align: center;
-        background: transparent;
         font-size: 1.4rem;
-        width: auto;
-        display: inline-block;
-      }
-
-      .nav-links a:hover,
-      .nav-links a.active {
-        background: rgba(255, 255, 255, 0.15);
-        color: var(--accent);
-        border-radius: 50px;
-        box-shadow: none;
+        padding: 12px;
       }
 
       .menu-toggle {
         display: block;
         z-index: 1001;
-      }
-
-      .countdown {
-        gap: 10px;
-      }
-
-      .time-value {
-        font-size: 1.5rem;
-      }
-
-      .time-unit {
-        min-width: 55px;
-      }
-
-      .separator {
-        display: none;
-      }
-
-      .coming-soon-card {
-        padding: 40px 20px;
       }
     }
   </style>
@@ -418,67 +315,139 @@
 
   <header>
     <nav>
-      <a href="index.html" class="logo">
-        CU Horse Year 2026
-      </a>
+      <a href="index.html" class="logo">CU Horse Year 2026</a>
       <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
         <div class="hamburger"></div>
       </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="activities.html">Activities</a></li>
-        <li><a href="foods.html">Foods</a></li>
-        <li><a href="goods.html">Goods</a></li>
+        <li><a href="foods.html">Food & Goods</a></li>
         <li><a href="showtime.html" class="active">Showtime</a></li>
       </ul>
     </nav>
   </header>
 
+  <img src="photos/showtimebg.jpg" class="bg-decoration" alt="">
+
   <main>
-    <!-- Background blurred orbs -->
-    <div class="bg-circle bg-1"></div>
-    <div class="bg-circle bg-2"></div>
+    <div class="title-area">
+      <h1>Performance</h1>
+    </div>
 
-    <div class="coming-soon-card">
-      <div class="icon-wrapper">
-      </div>
+    <div class="schedule-card">
+      <div class="schedule-table">
 
-      <h1>Showtime</h1>
-      <div class="subtitle-cn">精彩节目 敬请期待</div>
-
-      <p class="description">
-        We are curating an amazing lineup of performances for the 2026 Horse Year Festival.
-        Detailed schedule will be released soon!
-        <br><br>
-        节目单正在精心筹备中，届时将有乐队、舞蹈、武术等精彩表演！
-      </p>
-
-      <div class="countdown-container">
-        <div class="countdown-label">Festival Starts In</div>
-        <div class="countdown" id="countdown">
-          <div class="time-unit">
-            <span class="time-value" id="days">00</span>
-            <span class="time-label">Days</span>
-          </div>
-          <span class="separator">:</span>
-          <div class="time-unit">
-            <span class="time-value" id="hours">00</span>
-            <span class="time-label">Hours</span>
-          </div>
-          <span class="separator">:</span>
-          <div class="time-unit">
-            <span class="time-value" id="minutes">00</span>
-            <span class="time-label">Mins</span>
-          </div>
-          <span class="separator">:</span>
-          <div class="time-unit">
-            <span class="time-value" id="seconds">00</span>
-            <span class="time-label">Secs</span>
+        <div class="schedule-item">
+          <div class="time-col">4:00–4:10</div>
+          <div class="program-col">
+            <div class="program-name cn">赛马 / 忆江南</div>
+            <div class="performer">DCO</div>
           </div>
         </div>
-      </div>
 
-      <a href="index.html" class="btn-home">Back to Home</a>
+        <div class="schedule-item">
+          <div class="time-col">4:15–4:55</div>
+          <div class="program-col">
+            <div class="program-name cn">回笼觉（上半场）</div>
+            <div class="performer">—</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">5:00–5:10</div>
+          <div class="program-col">
+            <div class="program-name cn">舞狮</div>
+            <div class="performer">—</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">5:15–5:55</div>
+          <div class="program-col">
+            <div class="program-name cn">回笼觉（下半场）</div>
+            <div class="performer">—</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">6:00–6:20</div>
+          <div class="program-col">
+            <div class="program-name en">Intro / Crossroad / Get Lucky</div>
+            <div class="performer">Corn Maze</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">6:25–6:30</div>
+          <div class="program-col">
+            <div class="program-name en">Supernatural</div>
+            <div class="performer">Old Jeans</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">6:35–6:40</div>
+          <div class="program-col">
+            <div class="program-name cn">诗歌舞街</div>
+            <div class="performer">沐风&安妮</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">6:45–7:00</div>
+          <div class="program-col">
+            <div class="program-name en">Lemon Tree / Timezone / 江南</div>
+            <div class="performer">Baby Jazz</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">7:05–7:15</div>
+          <div class="program-col">
+            <div class="program-name cn">水星记 / 蒲公英的约定</div>
+            <div class="performer">INI</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">7:20–7:25</div>
+          <div class="program-col">
+            <div class="program-name cn">想你的夜</div>
+            <div class="performer">蒋博研</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">7:30–7:35</div>
+          <div class="program-col">
+            <div class="program-name cn">赛马 / 雪莲花开</div>
+            <div class="performer">Leo</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">7:40–7:45</div>
+          <div class="program-col">
+            <div class="program-name cn">东京不太热</div>
+            <div class="performer">陈韵妃&汤圆</div>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <div class="time-col">7:50–7:55</div>
+          <div class="program-col">
+            <div class="program-name en">position + sugar + bad bitch</div>
+            <div class="performer">D&O</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="poster-footer">
+      <div class="footer-text-script">From This Saddle Forth</div>
+      <div class="footer-text-mono">02 . 28 . 26</div>
     </div>
   </main>
 
@@ -491,44 +460,20 @@
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
 
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+    }
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      if (menuToggle && navLinks && !menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
         menuToggle.classList.remove('active');
         navLinks.classList.remove('active');
       }
     });
-
-    // Countdown Timer Logic
-    const festivalDate = new Date('February 28, 2026 16:00:00 PST').getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = festivalDate - now;
-
-      if (distance < 0) {
-        document.getElementById('countdown').innerHTML = '<div class="time-value">Event Started!</div>';
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-      document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-      document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-      document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call
   </script>
 </body>
 
