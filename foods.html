@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food & Goods | 2026 Horse Year Festival</title>
+  <title>Food & Goods | Onward! Horse Year Festival</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -235,12 +235,12 @@
     }
 
     .card-price {
+      display: none;
       margin-top: auto;
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--primary);
       background: rgba(198, 40, 40, 0.08);
-      display: inline-block;
       padding: 8px 16px;
       border-radius: 8px;
       align-self: flex-start;
@@ -413,7 +413,7 @@
   <header>
     <nav>
       <a href="index.html" class="logo">
-        CU Horse Year 2026
+        Onward! Horse Year 2026
       </a>
       <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
         <div class="hamburger"></div>
@@ -422,6 +422,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="activities.html">Activities</a></li>
         <li><a href="foods.html" class="active">Food & Goods</a></li>
+        <li><a href="map.html">Map</a></li>
         <li><a href="showtime.html">Showtime</a></li>
       </ul>
     </nav>
@@ -475,7 +476,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 CU Horse Year Festival. All Rights Reserved.</p>
+    <p>&copy; 2026 ChineseUnion at UCD.</p>
   </footer>
 
   <script>
@@ -710,7 +711,7 @@
             </div>`;
           }
 
-          const priceHtml = item.price ? `<div class="card-price">${item.price}</div>` : '';
+          const priceHtml = '';
 
           card.innerHTML = `
             <div class="card-image-container">
